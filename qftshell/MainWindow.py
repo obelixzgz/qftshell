@@ -23,46 +23,27 @@
 # $Id: $
 #
 
-from PyQt5.QtWidgets import QMainWindow,  QToolBar,  QAction,  QStatusBar
-from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QMainWindow
+from PyQt5.QtCore import pyqtSlot
 
-class MainWindow (QMainWindow):
-    def __init__(self):
-        super().__init__()
-        
-        self.setWindowTitle("Qt Shell for Forth")
-        
-        toolbar = QToolBar("Forth Toolbar")
-        
-        actSend = QAction(QIcon("icons/arrow-curve.png"), "Send",  self)
-        actSend.setStatusTip("Send actual line")
-        actSend.triggered.connect(self.onSendAction)
-        
-        actConnect = QAction(QIcon("icons/socket.png"), "Connect",  self)
-        actConnect.setStatusTip("Connect to microcontroller")
-        actConnect.triggered.connect(self.onConnectAction)
+from ui.Ui_MainWindow import Ui_MainWindow
 
-        actOpen = QAction("&Open File",  self)
-        actOpen.setStatusTip("Open file")
-        actOpen.triggered.connect(self.onOpenAction)
-        
-        self.addToolBar(toolbar)
-        toolbar.addAction(actConnect)
-        toolbar.addAction(actSend)
-        
-        menu = self.menuBar()
-        
-        fileMenu = menu.addMenu("&File")
-        fileMenu.addAction(actOpen)
-        fileMenu.addAction(actConnect)
+class MainWindow (QMainWindow,  Ui_MainWindow):
+	def __init__(self):
+		super().__init__()
+		self.setupUi(self)
+		self.show()
 
-        self.setStatusBar(QStatusBar(self))
-        
-    def onSendAction(self,  s):
-        print("Send", s)
-        
-    def onConnectAction(self, s): 
-        print("Connect",  s)
-        
-    def onOpenAction(self, s):
-        print("Open File",  s)
+	def onSendAction(self,  s):
+		print("Send", s)
+
+	def onConnectAction(self, s): 
+		print("Connect",  s)
+
+	def onOpenAction(self, s):
+		print("Open File",  s)
+		
+	@pyqtSlot(bool)
+	def on_actionQuit_triggered(self,  checked):
+		print("Quit! ",  checked)
+		self.close()
