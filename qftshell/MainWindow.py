@@ -45,5 +45,4 @@ class MainWindow (QMainWindow,  Ui_MainWindow):
 		
 	@pyqtSlot(bool)
 	def on_actionQuit_triggered(self,  checked):
-		print("Quit! ",  checked)
 		self.close()
