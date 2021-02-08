@@ -23,35 +23,12 @@
 # $Id: $
 #
 
-from PyQt5.QtWidgets import QMainWindow
-from PyQt5.QtCore import pyqtSlot
+from ui.Ui_Terminal import Ui_Terminal
+from PyQt5.QtCore import Qt,  pyqtSlot,  QFileSystemWatcher
+from PyQt5.QtWidgets import QWidget
+from PyQt5.QtSerialPort import QSerialPortInfo
 
-from ui.Ui_MainWindow import Ui_MainWindow
-from OpenConnection import OpenConnection
-from Terminal import Terminal
-
-class MainWindow (QMainWindow,  Ui_MainWindow):
-	def __init__(self):
-		super().__init__()
+class Terminal (QWidget,  Ui_Terminal):
+	def __init__(self,  parent = None, flags = Qt.WindowFlags()):
+		super().__init__(parent,  flags)
 		self.setupUi(self)
-		self.show()
-
-	def onSendAction(self,  s):
-		print("Send", s)
-
-	@pyqtSlot(bool)
-	def on_actionOpenConnection_triggered(self, s): 
-		d = OpenConnection(self)
-		if d.exec() != OpenConnection.Accepted:
-			return
-		t = Terminal(self)
-		self.mdiArea.addSubWindow(t)
-		t.show()
-
-	def onOpenAction(self, s):
-		print("Open File",  s)
-		
-	@pyqtSlot(bool)
-	def on_actionQuit_triggered(self,  checked):
-		self.close()
-		

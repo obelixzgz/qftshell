@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/bruno/proyectos/qftshell/qftshell/ui/MainWindow.ui'
+# Form implementation generated from reading ui file '/home/bruno/proyectos/github/qftshell/qftshell/ui/MainWindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.0
 #
@@ -14,12 +14,17 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(873, 656)
         self.centralWidget = QtWidgets.QWidget(MainWindow)
         self.centralWidget.setObjectName("centralWidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.centralWidget)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.mdiArea = QtWidgets.QMdiArea(self.centralWidget)
+        self.mdiArea.setObjectName("mdiArea")
+        self.verticalLayout.addWidget(self.mdiArea)
         MainWindow.setCentralWidget(self.centralWidget)
         self.menuBar = QtWidgets.QMenuBar(MainWindow)
-        self.menuBar.setGeometry(QtCore.QRect(0, 0, 800, 29))
+        self.menuBar.setGeometry(QtCore.QRect(0, 0, 873, 29))
         self.menuBar.setObjectName("menuBar")
         self.menu_File = QtWidgets.QMenu(self.menuBar)
         self.menu_File.setObjectName("menu_File")

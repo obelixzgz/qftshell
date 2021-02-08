@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project qftshell -->
-<!-- Saved: 2021-02-06, 00:49:56 -->
+<!-- Saved: 2021-02-09, 00:53:46 -->
 <!-- Copyright (C) 2021 ,  -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -14,11 +14,17 @@
   <Eol index="0"/>
   <Sources>
     <Source>MainWindow.py</Source>
+    <Source>OpenConnection.py</Source>
+    <Source>Terminal.py</Source>
     <Source>qftshell.py</Source>
     <Source>ui/Ui_MainWindow.py</Source>
+    <Source>ui/Ui_OpenConnection.py</Source>
+    <Source>ui/Ui_Terminal.py</Source>
   </Sources>
   <Forms>
     <Form>ui/MainWindow.ui</Form>
+    <Form>ui/OpenConnection.ui</Form>
+    <Form>ui/Terminal.ui</Form>
   </Forms>
   <Others>
     <Other>.gitignore</Other>
